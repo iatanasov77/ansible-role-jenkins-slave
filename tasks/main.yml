@@ -17,7 +17,11 @@
   become: true
   
 - name: jenkins-swarm | Download Jenkins Swarm Client
-  get_url: dest={{ jenkins_slave_home }}/swarm-client-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar url={{ jenkins_swarm_client_url }}/{{ jenkins_swarm_client_version }}/swarm-client-{{ jenkins_swarm_client_version }}.jar owner={{ jenkins_user }} group={{ jenkins_group }}
+  get_url:
+    dest={{ jenkins_slave_home }}/swarm-client-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar
+    url={{ jenkins_swarm_client_url }}/{{ jenkins_swarm_client_version }}/swarm-client-{{ jenkins_swarm_client_version }}.jar
+    owner={{ jenkins_user }}
+    group={{ jenkins_group }}
   tags: jenkins_swarm_setup
   become: true
   
